@@ -20,6 +20,7 @@ const deploy = async () => {
   const result = await new web3.eth.Contract(JSON.parse(interface))//teatching web3 about how to read the contract
     .deploy({ data: bytecode}) //specifying argument necessary to deploy the  contract
     .send ({from : accounts[0], gas: '1000000'}); //specify element to create the "deploy contract" trabsaction 
+  console.log(interface);
   console.log('Contract deploy to:', result.options.address);//Posting the account deploying the contract
   provider.engine.stop;//Preventing a hanging deployement 
 };
